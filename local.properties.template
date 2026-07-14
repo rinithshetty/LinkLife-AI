@@ -1,0 +1,18 @@
+## Rename this file to exactly "local.properties" (remove the .template suffix).
+## It must live in the project ROOT (same folder as settings.gradle.kts).
+## This file is machine-specific and gitignored — never commit your real one.
+
+## Windows example (check File > Settings > Languages & Frameworks > Android SDK
+## in Android Studio if you're not sure where your SDK is installed):
+sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk
+
+## macOS example:
+# sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+
+## Linux example:
+# sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+
+## Optional: Gemini API key for the AI Symptom Explainer feature.
+## Leave blank if you don't have one yet — the app still builds fine either way.
+GEMINI_API_KEY=
+MAPS_API_KEY=

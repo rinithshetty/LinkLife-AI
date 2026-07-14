@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # A minimal placeholder google-services.json so the google-services plugin (applied
+      # only to :app) doesn't fail CI builds. Real Firebase calls will simply fail at
+      # runtime with this file — CI only needs the build to succeed, not talk to Firebase.
+      - name: Add placeholder google-services.json
+        run: cp app/google-services.sample.json app/google-services.json
+
+      - name: Lint (ktlint)
+        run: ./gradlew ktlintCheck --continue
+
+      - name: Unit tests
+        run: ./gradlew testDebugUnitTest --continue
+
+      - name: Assemble debug APK
+        run: ./gradlew assembleDebug
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: "**/build/reports/tests/"
+
+  instrumented-tests:
+    runs-on: macos-latest
+    needs: build-and-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Add placeholder google-services.json
+        run: cp app/google-services.sample.json app/google-services.json
+
+      - name: Run instrumented tests on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          script: ./gradlew connectedDebugAndroidTest

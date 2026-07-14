@@ -1,0 +1,4 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base theme is minimal; Compose (LifeLinkTheme in core:ui) owns actual theming. -->
+    <style name="Theme.LifeLinkAI" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

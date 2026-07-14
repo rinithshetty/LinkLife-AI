@@ -1,0 +1,51 @@
+[
+  {
+    "id": "earthquake_1",
+    "disasterType": "earthquake",
+    "title": "During an Earthquake",
+    "steps": [
+      "Drop, Cover, and Hold On — get under a sturdy table if possible.",
+      "Stay away from windows, mirrors, and heavy furniture that could fall.",
+      "If indoors, stay indoors until the shaking stops.",
+      "If outdoors, move to an open area away from buildings, trees, and power lines.",
+      "If driving, pull over away from bridges/overpasses and stay in the vehicle.",
+      "After shaking stops, check yourself and others for injuries before moving."
+    ]
+  },
+  {
+    "id": "earthquake_2",
+    "disasterType": "earthquake",
+    "title": "After an Earthquake",
+    "steps": [
+      "Expect aftershocks — they can be strong enough to cause more damage.",
+      "Check for gas leaks, damaged wiring, and structural damage before re-entering buildings.",
+      "Use text messages instead of calls to keep phone lines free for emergencies.",
+      "Listen to official radio/alerts for evacuation instructions.",
+      "Use the Emergency Contacts and Location Sharing features to let family know you're safe."
+    ]
+  },
+  {
+    "id": "flood_1",
+    "disasterType": "flood",
+    "title": "Flood Safety",
+    "steps": [
+      "Move immediately to higher ground if flash flooding is possible in your area.",
+      "Never walk, swim, or drive through flood waters — 15cm of moving water can knock you down.",
+      "Stay off bridges over fast-moving water.",
+      "If your vehicle is trapped in rising water, abandon it and move to higher ground if you can do so safely.",
+      "Avoid contact with flood water — it may be contaminated or electrically charged."
+    ]
+  },
+  {
+    "id": "fire_1",
+    "disasterType": "fire",
+    "title": "Fire Emergency",
+    "steps": [
+      "Get out immediately — do not stop to gather belongings.",
+      "Stay low to the ground to avoid smoke inhalation.",
+      "Check doors for heat before opening; if hot, use another exit.",
+      "Once outside, stay outside and go to your designated meeting point.",
+      "Call emergency services as soon as you are safely away from the building."
+    ]
+  }
+]
