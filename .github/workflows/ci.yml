@@ -29,10 +29,18 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         
-      - name: Configure Gradle JVM args
-        run: |
-          mkdir -p ~/.gradle
-          echo "org.gradle.jvmargs=-Xmx2048m -XX:+UseG1GC" >> ~/.gradle/gradle.properties
+      - name: Lint (ktlint)
+  run: ./gradlew ktlintCheck --continue
+  env:
+    GRADLE_OPTS: -Xmx2048m -XX:+UseG1GC
+     - name: Unit tests
+  run: ./gradlew testDebugUnitTest --continue
+  env:
+    GRADLE_OPTS: -Xmx2048m -XX:+UseG1GC
+    - name: Assemble debug APK
+  run: ./gradlew assembleDebug
+  env:
+    GRADLE_OPTS: -Xmx2048m -XX:+UseG1GC
 
       # A minimal placeholder google-services.json so the google-services plugin (applied
       # only to :app) doesn't fail CI builds. Real Firebase calls will simply fail at
